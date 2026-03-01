@@ -3,84 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
+    <title>Zubin Subawalla</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .profile-section {
-            transition: all 0.3s ease;
-        }
-        .hidden {
-            display: none;
-            opacity: 0;
-        }
-        .toggle-container {
-            background-color: rgba(237, 233, 254);
-            backdrop-filter: blur(5px);
-        }
-        .toggle-option {
-            transition: all 0.3s ease;
-            z-index: 1;
-        }
-        .toggle-checkbox:checked ~ .toggle-label .toggle-option.active {
-            color: white;
-            font-weight: 600;
-        }
-        .toggle-checkbox:not(:checked) ~ .toggle-label .toggle-option:not(.active) {
-            color: white;
-            font-weight: 600;
-        }
-        .toggle-slider {
-            transition: all 0.3s ease;
-            z-index: 0;
-            background-color: rgba(124, 58, 237, 0.3);
-        }
-        .toggle-checkbox:checked ~ .toggle-label .toggle-slider {
-            transform: translateX(100%);
-        }
+        .profile-section { transition: all 0.3s ease; }
+        .hidden { display: none; opacity: 0; }
+        .toggle-container { background-color: rgba(237, 233, 254); backdrop-filter: blur(5px); }
+        .toggle-option { transition: all 0.3s ease; z-index: 1; }
+        .toggle-checkbox:checked ~ .toggle-label .toggle-option.active { color: white; font-weight: 600; }
+        .toggle-checkbox:not(:checked) ~ .toggle-label .toggle-option:not(.active) { color: white; font-weight: 600; }
+        .toggle-slider { transition: all 0.3s ease; z-index: 0; background-color: rgba(124, 58, 237, 0.3); }
+        .toggle-checkbox:checked ~ .toggle-label .toggle-slider { transform: translateX(100%); }
         .hobby-card:hover, .skill-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             cursor: pointer;
         }
-        .profile-header {
-            transition: all 0.3s ease;
-        }
-        .project-detail {
-            display: none;
-        }
-        .project-detail.active {
-            display: block;
-            animation: fadeIn 0.3s ease-in-out;
-        }
+        .profile-header { transition: all 0.3s ease; }
+        .project-detail { display: none; }
+        .project-detail.active { display: block; animation: fadeIn 0.3s ease-in-out; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .back-button {
-            transition: all 0.3s ease;
+        .back-button { transition: all 0.3s ease; }
+        .back-button:hover { transform: translateX(-3px); }
+        .social-icon { transition: all 0.3s ease; }
+        .social-icon:hover { transform: translateY(-3px); }
+        .tool-badge {
+            display: inline-block;
+            background-color: #ede9fe;
+            color: #5b21b6;
+            border-radius: 9999px;
+            padding: 2px 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 3px;
         }
-        .back-button:hover {
-            transform: translateX(-3px);
+        .cert-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-left: 4px solid #7c3aed;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 10px;
         }
-        .social-icon {
-            transition: all 0.3s ease;
+        .timeline-dot {
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background-color: #7c3aed;
+            border: 3px solid #ede9fe;
+            flex-shrink: 0;
+            margin-top: 4px;
         }
-        .social-icon:hover {
-            transform: translateY(-3px);
+        .timeline-line {
+            width: 2px;
+            background-color: #ddd6fe;
+            flex-grow: 1;
+            margin: 4px auto;
         }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen font-sans">
     <div class="container mx-auto px-4 py-8 max-w-6xl">
+
         <!-- Work Profile Header -->
         <div id="workHeader" class="profile-header flex flex-col items-center mb-12">
             <img src="https://about.me/cdn-cgi/image/q=80,dpr=1,f=auto,fit=cover,w=1200,h=630,gravity=0.237x0.185/https://assets.about.me/background/users/z/u/b/zubinsubawalla_1515083910_126.jpg"
-                 alt="Professional Headshot" 
+                 alt="Zubin Subawalla"
                  class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg mb-4">
-            <h1 class="text-4xl font-bold text-gray-800 mb-2">Zubin Subawalla</h1>
-            <p class="text-xl text-gray-600 mb-6">Digital Creator & Problem Solver</p>
-            <a href="#" class="download-btn inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors mb-6">
+            <h1 class="text-4xl font-bold text-gray-800 mb-1">Zubin Andre Subawalla</h1>
+            <p class="text-xl text-gray-600 mb-1">SQL Server Developer &amp; GRC Product Specialist</p>
+            <p class="text-md text-gray-500 mb-4">
+                <i class="fas fa-map-marker-alt mr-1 text-purple-500"></i>Perth, WA 6000
+                &nbsp;|&nbsp;
+                <i class="fas fa-phone mr-1 text-purple-500"></i>+61 434 697 445
+                &nbsp;|&nbsp;
+                <i class="fas fa-envelope mr-1 text-purple-500"></i>zubinsubawalla@gmail.com
+            </p>
+            <div class="flex gap-3 mb-4">
+                <a href="https://www.linkedin.com/in/zubinsubawalla/" target="_blank" class="social-icon text-2xl text-blue-700 hover:text-blue-900"><i class="fab fa-linkedin"></i></a>
+                <a href="https://about.me/zubinsubawalla" target="_blank" class="social-icon text-2xl text-purple-600 hover:text-purple-800"><i class="fas fa-user-circle"></i></a>
+                <a href="https://zubinsubawalla.mystrikingly.com/" target="_blank" class="social-icon text-2xl text-gray-700 hover:text-black"><i class="fas fa-globe"></i></a>
+            </div>
+            <a href="#" class="download-btn inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
                 <i class="fas fa-download mr-2"></i> Download Resume
             </a>
         </div>
@@ -88,32 +97,17 @@
         <!-- Passion Profile Header -->
         <div id="passionHeader" class="profile-header hidden flex flex-col items-center mb-12">
             <img src="https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1440,w_720,f_auto,q_auto/441466/IMG_20151207_102107_fvjp2f.jpg"
-                 alt="Casual Photo" 
+                 alt="Zubin outdoors"
                  class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg mb-4">
-            <h1 class="text-4xl font-bold text-gray-800 mb-2">Alex</h1>
-            <p class="text-xl text-gray-600 mb-6">Photographer & Food Explorer</p>
-            
-            <!-- Social Media Links -->
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Zubin</h1>
+            <p class="text-xl text-gray-600 mb-6">Photographer · Cyclist · Hiker · Travel Enthusiast</p>
             <div class="flex space-x-4 mb-6">
-                <a href="#" class="social-icon text-2xl text-purple-600 hover:text-purple-800">
-                    <i class="fab fa-instagram"></i>
-                </a>
-<!--
-                <a href="#" class="social-icon text-2xl text-blue-600 hover:text-blue-800">
-                    <i class="fab fa-twitter"></i>
-                </a>
- -->
-                <a href="#" class="social-icon text-2xl text-red-600 hover:text-red-800">
-                    <i class="fab fa-youtube"></i>
-                </a>
-<!--    
-                <a href="#" class="social-icon text-2xl text-gray-800 hover:text-black">
-                    <i class="fab fa-github"></i>
-                </a>
--->                
+                <a href="https://www.linkedin.com/in/zubinsubawalla/" target="_blank" class="social-icon text-2xl text-blue-700 hover:text-blue-900"><i class="fab fa-linkedin"></i></a>
+                <a href="https://about.me/zubinsubawalla" target="_blank" class="social-icon text-2xl text-purple-600 hover:text-purple-800"><i class="fas fa-user-circle"></i></a>
+                <a href="https://zubinsubawalla.mystrikingly.com/" target="_blank" class="social-icon text-2xl text-gray-700 hover:text-black"><i class="fas fa-globe"></i></a>
             </div>
         </div>
-            
+
         <!-- Centered Toggle Switch -->
         <div class="flex justify-center mb-8">
             <div class="relative inline-block w-64">
@@ -128,386 +122,508 @@
             </div>
         </div>
 
-        <!-- Work Profile -->
+        <!-- ===================== WORK PROFILE ===================== -->
         <div id="workProfile" class="profile-section">
+
             <!-- Professional Summary -->
             <div class="bg-white rounded-xl shadow-md p-8 mb-8">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Professional Summary</h2>
                 <p class="text-gray-600 leading-relaxed">
-                    Seasoned professional with 10+ years of experience in digital product development. 
-                    Specializing in creating user-centered designs and scalable solutions for enterprise clients. 
-                    Passionate about bridging the gap between business objectives and technical implementation.
+                    Highly skilled IT professional with over 10 years of experience at Tata Consultancy Services, specialising in SQL development, application support, and GRC product administration. Demonstrated strengths in customer service, incident management, and ITIL processes with a commitment to continuous improvement. Proficient in technical documentation, root cause analysis, and cross-functional stakeholder communication. ITIL v3 Foundation certified and experienced with a broad range of enterprise tools including SAI360 GRC, Primavera P6, MS Project Server, and ServiceNow. Australian Red Cross Lifeblood donor and published researcher.
                 </p>
             </div>
 
             <!-- Skills -->
             <div class="bg-white rounded-xl shadow-md p-8 mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">Skills & Projects</h2>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Core Skills</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div class="skill-card bg-purple-50 p-4 rounded-lg transition-all duration-300" data-project="product-strategy">
-                        <h3 class="font-semibold text-purple-700 mb-2">Product Strategy</h3>
-                        <p class="text-gray-600 text-sm">Roadmapping, Market Analysis, Competitive Research</p>
-                        <div class="mt-2 text-purple-600 text-xs font-medium">Click to view project</div>
+                    <div class="skill-card bg-purple-50 p-4 rounded-lg transition-all duration-300" data-project="sql-dev">
+                        <h3 class="font-semibold text-purple-700 mb-2"><i class="fas fa-database mr-2"></i>SQL Development</h3>
+                        <p class="text-gray-600 text-sm">Complex queries, stored procedures, functions, triggers, views, SSRS</p>
+                        <div class="mt-2 text-purple-600 text-xs font-medium">Click to view details</div>
                     </div>
-                    <div class="skill-card bg-purple-50 p-4 rounded-lg transition-all duration-300" data-project="ux-design">
-                        <h3 class="font-semibold text-purple-700 mb-2">UX/UI Design</h3>
-                        <p class="text-gray-600 text-sm">Wireframing, Prototyping, User Testing</p>
-                        <div class="mt-2 text-purple-600 text-xs font-medium">Click to view project</div>
+                    <div class="skill-card bg-purple-50 p-4 rounded-lg transition-all duration-300" data-project="app-support">
+                        <h3 class="font-semibold text-purple-700 mb-2"><i class="fas fa-headset mr-2"></i>Application Support</h3>
+                        <p class="text-gray-600 text-sm">L2/L3 support, incident &amp; problem management, root cause analysis</p>
+                        <div class="mt-2 text-purple-600 text-xs font-medium">Click to view details</div>
                     </div>
-                    <div class="skill-card bg-purple-50 p-4 rounded-lg transition-all duration-300" data-project="frontend-dev">
-                        <h3 class="font-semibold text-purple-700 mb-2">Frontend Development</h3>
-                        <p class="text-gray-600 text-sm">React, Vue.js, TailwindCSS</p>
-                        <div class="mt-2 text-purple-600 text-xs font-medium">Click to view project</div>
+                    <div class="skill-card bg-purple-50 p-4 rounded-lg transition-all duration-300" data-project="grc">
+                        <h3 class="font-semibold text-purple-700 mb-2"><i class="fas fa-shield-alt mr-2"></i>GRC Administration</h3>
+                        <p class="text-gray-600 text-sm">SAI360 (BWise), Pentaho ETL, permission matrices, change management</p>
+                        <div class="mt-2 text-purple-600 text-xs font-medium">Click to view details</div>
                     </div>
-                    <div class="skill-card bg-purple-50 p-4 rounded-lg transition-all duration-300" data-project="project-management">
-                        <h3 class="font-semibold text-purple-700 mb-2">Project Management</h3>
-                        <p class="text-gray-600 text-sm">Agile, Scrum, Kanban</p>
-                        <div class="mt-2 text-purple-600 text-xs font-medium">Click to view project</div>
+                    <div class="skill-card bg-purple-50 p-4 rounded-lg transition-all duration-300" data-project="epm">
+                        <h3 class="font-semibold text-purple-700 mb-2"><i class="fas fa-project-diagram mr-2"></i>EPM Consulting</h3>
+                        <p class="text-gray-600 text-sm">MS Project Server, Primavera P6, SharePoint, PMO processes</p>
+                        <div class="mt-2 text-purple-600 text-xs font-medium">Click to view details</div>
                     </div>
-                    <div class="skill-card bg-purple-50 p-4 rounded-lg transition-all duration-300" data-project="data-analysis">
-                        <h3 class="font-semibold text-purple-700 mb-2">Data Analysis</h3>
-                        <p class="text-gray-600 text-sm">SQL, Google Analytics, A/B Testing</p>
-                        <div class="mt-2 text-purple-600 text-xs font-medium">Click to view project</div>
+                    <div class="skill-card bg-purple-50 p-4 rounded-lg transition-all duration-300" data-project="data-reporting">
+                        <h3 class="font-semibold text-purple-700 mb-2"><i class="fas fa-chart-bar mr-2"></i>Data &amp; Reporting</h3>
+                        <p class="text-gray-600 text-sm">Power BI, SAP BO, Excel BI, log/data analysis, dashboards</p>
+                        <div class="mt-2 text-purple-600 text-xs font-medium">Click to view details</div>
                     </div>
-                    <div class="skill-card bg-purple-50 p-4 rounded-lg transition-all duration-300" data-project="technical-writing">
-                        <h3 class="font-semibold text-purple-700 mb-2">Technical Writing</h3>
-                        <p class="text-gray-600 text-sm">Documentation, API Guides, Tutorials</p>
-                        <div class="mt-2 text-purple-600 text-xs font-medium">Click to view project</div>
+                    <div class="skill-card bg-purple-50 p-4 rounded-lg transition-all duration-300" data-project="itil-agile">
+                        <h3 class="font-semibold text-purple-700 mb-2"><i class="fas fa-cogs mr-2"></i>ITIL &amp; Agile</h3>
+                        <p class="text-gray-600 text-sm">ITIL v3 certified, Scrum, JIRA, ServiceNow, change &amp; release management</p>
+                        <div class="mt-2 text-purple-600 text-xs font-medium">Click to view details</div>
                     </div>
                 </div>
             </div>
 
             <!-- Project Details (hidden by default) -->
             <div id="projectDetails" class="hidden">
-                <!-- Product Strategy Project -->
-                <div id="product-strategy" class="project-detail bg-white rounded-xl shadow-md p-8 mb-8">
+
+                <div id="sql-dev" class="project-detail bg-white rounded-xl shadow-md p-8 mb-8">
                     <button class="back-button mb-6 flex items-center text-purple-600 font-medium">
                         <i class="fas fa-arrow-left mr-2"></i> Back to Skills
                     </button>
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Enterprise SaaS Product Strategy</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">SQL Development &amp; Database Management</h2>
                     <div class="flex items-center text-sm text-gray-500 mb-6">
-                        <span class="mr-4">TechSolutions Inc.</span>
-                        <span>2019 - Present</span>
+                        <span class="mr-4">Tata Consultancy Services</span><span>May 2019 – Present</span>
                     </div>
-                    
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Challenge</h3>
-                        <p class="text-gray-600">
-                            The company needed to pivot its product offerings to address emerging market needs in the 
-                            post-pandemic digital transformation space. Our existing roadmap wasn't aligned with 
-                            shifting customer priorities.
-                        </p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Overview</h3>
+                        <p class="text-gray-600">As SQL Server Developer at TCS, responsible for developing, optimising, and maintaining database solutions that power enterprise application integration and BI reporting.</p>
                     </div>
-                    
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">My Role</h3>
-                        <p class="text-gray-600">
-                            As the lead product strategist, I conducted extensive market research, analyzed competitor 
-                            offerings, and facilitated workshops with stakeholders to redefine our product vision and 
-                            3-year roadmap.
-                        </p>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Skills Applied</h3>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h3>
                         <ul class="list-disc list-inside text-gray-600 space-y-1">
-                            <li>Market analysis using Porter's Five Forces framework</li>
-                            <li>Customer journey mapping and opportunity identification</li>
-                            <li>Stakeholder alignment through collaborative workshops</li>
-                            <li>Roadmap prioritization using RICE scoring model</li>
+                            <li>Developed and optimised complex SQL queries, stored procedures, functions, triggers, and views</li>
+                            <li>Analysed large datasets using advanced querying to extract and transform data for BI purposes</li>
+                            <li>Performed database maintenance including backups, recovery operations, and error correction</li>
+                            <li>Provided end-to-end support for client application products and database-related issues</li>
+                            <li>Generated SSRS reports and Power BI dashboards for operational and management reporting</li>
                         </ul>
                     </div>
-                    
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Outcome</h3>
-                        <p class="text-gray-600">
-                            The new strategy resulted in a 35% increase in customer acquisition and positioned the company 
-                            as a leader in hybrid work solutions. We successfully launched 3 new product lines within 
-                            18 months based on this strategy.
-                        </p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Tools Used</h3>
+                        <div>
+                            <span class="tool-badge">SQL Server Management Studio</span>
+                            <span class="tool-badge">SQL Developer</span>
+                            <span class="tool-badge">SSRS</span>
+                            <span class="tool-badge">Power BI</span>
+                            <span class="tool-badge">SAP BO</span>
+                            <span class="tool-badge">Excel</span>
+                            <span class="tool-badge">VS Code</span>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- UX/UI Design Project -->
-                <div id="ux-design" class="project-detail bg-white rounded-xl shadow-md p-8 mb-8">
+
+                <div id="app-support" class="project-detail bg-white rounded-xl shadow-md p-8 mb-8">
                     <button class="back-button mb-6 flex items-center text-purple-600 font-medium">
                         <i class="fas fa-arrow-left mr-2"></i> Back to Skills
                     </button>
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Healthcare Portal Redesign</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Application Support — L2/L3 Engineering</h2>
                     <div class="flex items-center text-sm text-gray-500 mb-6">
-                        <span class="mr-4">Digital Innovations Co.</span>
-                        <span>2017 - 2018</span>
+                        <span class="mr-4">Tata Consultancy Services</span><span>Aug 2012 – Present</span>
                     </div>
-                    
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Challenge</h3>
-                        <p class="text-gray-600">
-                            A major healthcare provider's patient portal had a 65% drop-off rate during the registration 
-                            process and poor mobile usability scores. Users found the interface confusing and 
-                            overwhelming.
-                        </p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Overview</h3>
+                        <p class="text-gray-600">Over 10 years of L2/L3 application support, delivering multi-channel technical assistance, managing complex incident resolution, and mentoring junior team members across global enterprise environments.</p>
                     </div>
-                    
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">My Role</h3>
-                        <p class="text-gray-600">
-                            As the lead UX designer, I conducted user research, created wireframes and prototypes, 
-                            and led usability testing sessions to completely redesign the portal experience.
-                        </p>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Skills Applied</h3>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h3>
                         <ul class="list-disc list-inside text-gray-600 space-y-1">
-                            <li>User interviews and persona development</li>
-                            <li>Information architecture restructuring</li>
-                            <li>Interactive prototyping with Figma</li>
-                            <li>Accessibility compliance (WCAG 2.1)</li>
-                            <li>Usability testing with medical professionals</li>
+                            <li>Delivered Tier 2 &amp; Tier 3 support via phone, email, remote access, and on-site assistance</li>
+                            <li>Performed root cause analysis on recurring issues and implemented preventive solutions</li>
+                            <li>Monitored applications and managed deployments, upgrades, patches, and bug fixes</li>
+                            <li>Managed incidents, changes, and problems in line with ITIL best practices</li>
+                            <li>Mentored and trained junior team members; backup lead for a team of 10 associates</li>
+                            <li>Created user manuals, training documentation, knowledge base articles, and FAQs</li>
                         </ul>
                     </div>
-                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Applications Supported</h3>
+                        <div>
+                            <span class="tool-badge">Primavera P6 v15.1/16.2</span>
+                            <span class="tool-badge">SAI360 GRC (BWise)</span>
+                            <span class="tool-badge">MS Project Server 2010/2013</span>
+                            <span class="tool-badge">Trans Sequel Fuel Management</span>
+                            <span class="tool-badge">SharePoint</span>
+                        </div>
+                    </div>
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Outcome</h3>
-                        <p class="text-gray-600">
-                            The redesigned portal reduced registration drop-off by 52% and improved mobile satisfaction 
-                            scores from 2.8 to 4.3/5. The client reported a 40% decrease in support calls related to 
-                            portal navigation issues.
-                        </p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Tools Used</h3>
+                        <div>
+                            <span class="tool-badge">ServiceNow</span>
+                            <span class="tool-badge">HPSM</span>
+                            <span class="tool-badge">Zendesk</span>
+                            <span class="tool-badge">JIRA</span>
+                            <span class="tool-badge">Browser Dev Tools</span>
+                            <span class="tool-badge">Fiddler</span>
+                            <span class="tool-badge">WebLogic 12c</span>
+                            <span class="tool-badge">Tomcat</span>
+                            <span class="tool-badge">IIS</span>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Frontend Development Project -->
-                <div id="frontend-dev" class="project-detail bg-white rounded-xl shadow-md p-8 mb-8">
+
+                <div id="grc" class="project-detail bg-white rounded-xl shadow-md p-8 mb-8">
                     <button class="back-button mb-6 flex items-center text-purple-600 font-medium">
                         <i class="fas fa-arrow-left mr-2"></i> Back to Skills
                     </button>
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">E-commerce Platform Migration</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">GRC Product Specialist — SAI360 (BWise)</h2>
                     <div class="flex items-center text-sm text-gray-500 mb-6">
-                        <span class="mr-4">TechSolutions Inc.</span>
-                        <span>2020</span>
+                        <span class="mr-4">Tata Consultancy Services</span><span>May 2019 – Present</span>
                     </div>
-                    
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Challenge</h3>
-                        <p class="text-gray-600">
-                            Our legacy jQuery-based e-commerce platform couldn't support the growing complexity of 
-                            product configurations and real-time inventory updates needed for the business.
-                        </p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Overview</h3>
+                        <p class="text-gray-600">Five years of hands-on experience as a certified BWise Functional and Technical Administrator, managing GRC product configuration, data model mapping, ETL pipelines, and vendor coordination for enterprise clients.</p>
                     </div>
-                    
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">My Role</h3>
-                        <p class="text-gray-600">
-                            As the frontend tech lead, I architected and implemented the migration to a React-based 
-                            single-page application with Vue.js for admin interfaces, while ensuring zero downtime 
-                            during the transition.
-                        </p>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Skills Applied</h3>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h3>
                         <ul class="list-disc list-inside text-gray-600 space-y-1">
-                            <li>React component architecture with hooks</li>
-                            <li>State management with Context API</li>
-                            <li>Performance optimization techniques</li>
-                            <li>Responsive design with TailwindCSS</li>
-                            <li>API integration with GraphQL</li>
+                            <li>Documented GRC product functionalities and maintained/reviewed existing documentation</li>
+                            <li>Maintained release calendar including all GRC deployments and change management approvals</li>
+                            <li>Developed change documents such as Implementation Plans for production deployments</li>
+                            <li>Maintained data model mapping/documentation for production environment changes</li>
+                            <li>Provided GRC product and data model training to the BI team</li>
+                            <li>Liaised with vendor for hotfix releases of known product bugs identified by users</li>
+                            <li>Maintained and updated Permission Matrix of User Profiles/Groups</li>
+                            <li>Designed ETL jobs using Pentaho PDI for data integration workflows</li>
                         </ul>
                     </div>
-                    
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Outcome</h3>
-                        <p class="text-gray-600">
-                            The new platform reduced page load times by 68% and increased mobile conversion rates by 
-                            22%. The modular architecture allowed for faster feature development, reducing time-to-market 
-                            for new capabilities by 40%.
-                        </p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Tools Used</h3>
+                        <div>
+                            <span class="tool-badge">SAI360 GRC (BWise)</span>
+                            <span class="tool-badge">Pentaho PDI</span>
+                            <span class="tool-badge">SQL Server</span>
+                            <span class="tool-badge">JIRA</span>
+                            <span class="tool-badge">Confluence</span>
+                            <span class="tool-badge">ServiceNow</span>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Add similar project detail sections for other skills -->
-                <div id="project-management" class="project-detail bg-white rounded-xl shadow-md p-8 mb-8">
+
+                <div id="epm" class="project-detail bg-white rounded-xl shadow-md p-8 mb-8">
                     <button class="back-button mb-6 flex items-center text-purple-600 font-medium">
                         <i class="fas fa-arrow-left mr-2"></i> Back to Skills
                     </button>
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Global Product Launch</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">EPM Consulting — Project Server &amp; Primavera</h2>
                     <div class="flex items-center text-sm text-gray-500 mb-6">
-                        <span class="mr-4">TechSolutions Inc.</span>
-                        <span>2021</span>
+                        <span class="mr-4">Tata Consultancy Services</span><span>Aug 2012 – May 2019</span>
                     </div>
-                    
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Challenge</h3>
-                        <p class="text-gray-600">
-                            Coordinating a simultaneous product launch across 12 countries with regulatory requirements, 
-                            localization needs, and distributed teams in 5 time zones.
-                        </p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Overview</h3>
+                        <p class="text-gray-600">Managed and administered MS Project Server 2010/2013 and Primavera P6 for enterprise clients, supporting full project lifecycle management and PMO services. Maintained ITER project schedules in Primavera P6.</p>
                     </div>
-                    
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">My Role</h3>
-                        <p class="text-gray-600">
-                            As project manager, I established agile processes, facilitated cross-team collaboration, 
-                            and implemented tracking mechanisms to ensure all dependencies were managed effectively.
-                        </p>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Skills Applied</h3>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Key Responsibilities</h3>
                         <ul class="list-disc list-inside text-gray-600 space-y-1">
-                            <li>Agile Scrum methodology implementation</li>
-                            <li>Risk management and mitigation planning</li>
-                            <li>Stakeholder communication strategies</li>
-                            <li>JIRA workflow customization</li>
-                            <li>Release planning and coordination</li>
+                            <li>Managed risks, issues, and dependencies for client projects using Project Server 2010</li>
+                            <li>Ensured quality assurance using the Project Delivery Framework (PDF) and tracked milestones</li>
+                            <li>Baselined project plans and created SharePoint project workspaces for team collaboration</li>
+                            <li>Generated reports for Portfolio &amp; Programme managers; maintained programme/project plans</li>
+                            <li>Created SharePoint dashboards for graphical view of project performance</li>
+                            <li>Built a system to capture PPI items (Programmes, Projects, Initiatives) in real time</li>
+                            <li>Developed Risk Workflow in SharePoint to better manage project risks and accountability</li>
+                            <li>Created Kanban board using SharePoint workflows and Office 365 Planner for BAU management</li>
+                            <li>Implemented continuous improvement initiatives to automate routine tasks and reduce ticket count</li>
                         </ul>
                     </div>
-                    
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Outcome</h3>
-                        <p class="text-gray-600">
-                            The product launched on schedule in all markets with zero critical issues. The project 
-                            management framework developed became the company standard for future global launches.
-                        </p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Tools Used</h3>
+                        <div>
+                            <span class="tool-badge">MS Project Server 2010/2013</span>
+                            <span class="tool-badge">Primavera P6</span>
+                            <span class="tool-badge">SharePoint</span>
+                            <span class="tool-badge">InfoPath Forms</span>
+                            <span class="tool-badge">SharePoint Designer</span>
+                            <span class="tool-badge">Office 365 Planner</span>
+                            <span class="tool-badge">MS Project Professional</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div id="data-analysis" class="project-detail bg-white rounded-xl shadow-md p-8 mb-8">
+
+                <div id="data-reporting" class="project-detail bg-white rounded-xl shadow-md p-8 mb-8">
                     <button class="back-button mb-6 flex items-center text-purple-600 font-medium">
                         <i class="fas fa-arrow-left mr-2"></i> Back to Skills
                     </button>
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Customer Retention Analysis</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Data Analysis &amp; Business Intelligence Reporting</h2>
                     <div class="flex items-center text-sm text-gray-500 mb-6">
-                        <span class="mr-4">TechSolutions Inc.</span>
-                        <span>2022</span>
+                        <span class="mr-4">Tata Consultancy Services</span><span>Aug 2012 – Present</span>
                     </div>
-                    
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Challenge</h3>
-                        <p class="text-gray-600">
-                            The company was experiencing higher than expected customer churn (28% annually) but lacked 
-                            clear insights into the drivers of attrition or predictive indicators.
-                        </p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Overview</h3>
+                        <p class="text-gray-600">Delivering data-driven insights across the full project lifecycle — from SQL-based data extraction through to interactive Power BI dashboards and executive-level SAP BO reports.</p>
                     </div>
-                    
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">My Role</h3>
-                        <p class="text-gray-600">
-                            I led a cross-functional team to analyze customer usage patterns, support interactions, and 
-                            satisfaction metrics to identify churn risk factors and recommend intervention strategies.
-                        </p>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Skills Applied</h3>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Key Activities</h3>
                         <ul class="list-disc list-inside text-gray-600 space-y-1">
-                            <li>SQL queries for customer behavior analysis</li>
-                            <li>Google Analytics event tracking setup</li>
-                            <li>A/B testing design and interpretation</li>
-                            <li>Data visualization with Tableau</li>
-                            <li>Predictive modeling techniques</li>
+                            <li>Analysed large datasets using advanced SQL to extract, manipulate, and transform data</li>
+                            <li>Built Excel BI reports for project performance and operational tracking</li>
+                            <li>Designed Power BI dashboards for management and client visibility</li>
+                            <li>Created SAP BO reports using Universe Design Tool</li>
+                            <li>Generated SSRS reports for application and system monitoring</li>
+                            <li>Provided regular status updates and reporting to senior stakeholders</li>
                         </ul>
                     </div>
-                    
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Outcome</h3>
-                        <p class="text-gray-600">
-                            Identified 5 key churn indicators and implemented targeted interventions that reduced 
-                            annual churn to 18%. The predictive model achieved 82% accuracy in flagging at-risk 
-                            customers 90 days before churn.
-                        </p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Tools Used</h3>
+                        <div>
+                            <span class="tool-badge">Excel / Power BI</span>
+                            <span class="tool-badge">SAP BO</span>
+                            <span class="tool-badge">Universe Design Tool</span>
+                            <span class="tool-badge">SSRS</span>
+                            <span class="tool-badge">SQL Server</span>
+                            <span class="tool-badge">Draw.io</span>
+                            <span class="tool-badge">Figma</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div id="technical-writing" class="project-detail bg-white rounded-xl shadow-md p-8 mb-8">
+
+                <div id="itil-agile" class="project-detail bg-white rounded-xl shadow-md p-8 mb-8">
                     <button class="back-button mb-6 flex items-center text-purple-600 font-medium">
                         <i class="fas fa-arrow-left mr-2"></i> Back to Skills
                     </button>
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Developer Portal Documentation</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">ITIL &amp; Agile Service Delivery</h2>
                     <div class="flex items-center text-sm text-gray-500 mb-6">
-                        <span class="mr-4">TechSolutions Inc.</span>
-                        <span="2021 - 2022</span>
+                        <span class="mr-4">Tata Consultancy Services</span><span>Aug 2012 – Present</span>
                     </div>
-                    
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Challenge</h3>
-                        <p class="text-gray-600">
-                            Our API documentation was fragmented, outdated, and frequently cited as a pain point by 
-                            developers integrating with our platform. Support tickets related to documentation issues 
-                            accounted for 35% of all developer support requests.
-                        </p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Overview</h3>
+                        <p class="text-gray-600">ITIL v3 Foundation certified with extensive experience applying ITIL principles across service operations, combined with Agile/Scrum practices for project delivery within a global IT services firm.</p>
                     </div>
-                    
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">My Role</h3>
-                        <p class="text-gray-600">
-                            I overhauled the entire developer portal, creating comprehensive, standardized documentation 
-                            with interactive examples, and implemented processes to keep content current with product 
-                            updates.
-                        </p>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Skills Applied</h3>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Key Activities</h3>
                         <ul class="list-disc list-inside text-gray-600 space-y-1">
-                            <li>Technical documentation best practices</li>
-                            <li>API reference documentation</li>
-                            <li>Tutorial and quickstart guide creation</li>
-                            <li>Swagger/OpenAPI specification</li>
-                            <li>Documentation versioning strategy</li>
+                            <li>Attended daily SCRUM meetings and provided status on assigned tasks and blockers</li>
+                            <li>Led continuous improvement initiatives as SPOC, tracking outcomes and efficiency gains</li>
+                            <li>Took ownership of change management including implementation plans for prod deployments</li>
+                            <li>Managed incident, change, and problem workflows in ServiceNow and HPSM</li>
+                            <li>Executed software upgrades, patches, and planned maintenance procedures</li>
+                            <li>Served as backup team lead for a team of 10 associates</li>
                         </ul>
                     </div>
-                    
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Outcome</h3>
-                        <p class="text-gray-600">
-                            Developer satisfaction with documentation improved from 3.1 to 4.6/5, and support tickets 
-                            related to documentation issues dropped by 78%. The portal became a key differentiator 
-                            in sales conversations with technical buyers.
-                        </p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Tools Used</h3>
+                        <div>
+                            <span class="tool-badge">ServiceNow</span>
+                            <span class="tool-badge">HPSM</span>
+                            <span class="tool-badge">JIRA</span>
+                            <span class="tool-badge">Confluence</span>
+                            <span class="tool-badge">MS Planner</span>
+                            <span class="tool-badge">Asana</span>
+                            <span class="tool-badge">Zendesk</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- My Journey -->
+            <!-- Professional Journey -->
             <div id="journeySection" class="bg-white rounded-xl shadow-md p-8 mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">My Professional Journey</h2>
-                <div class="space-y-8">
-                    <div class="flex flex-col md:flex-row gap-6">
-                        <div class="md:w-1/4">
-                            <p class="text-purple-600 font-semibold">2019 - Present</p>
+                <h2 class="text-2xl font-bold text-gray-800 mb-8">Professional Journey</h2>
+                <div class="space-y-0">
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
                         </div>
-                        <div class="md:w-3/4">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-1">Senior Product Designer</h3>
-                            <p class="text-purple-600 mb-2">TechSolutions Inc.</p>
-                            <p class="text-gray-600">Leading design initiatives for enterprise SaaS products, mentoring junior designers, and collaborating with cross-functional teams to deliver innovative solutions.</p>
+                        <div class="pb-8 flex-1">
+                            <p class="text-purple-600 font-semibold text-sm mb-1">May 2019 – Present</p>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-1">SQL Server Developer / GRC Product Specialist</h3>
+                            <p class="text-purple-600 font-medium mb-3">Tata Consultancy Services · Perth, WA</p>
+                            <p class="text-gray-600 mb-3">Database development, optimisation, and GRC product administration. Delivered advanced SQL solutions, Power BI dashboards, and SAI360 GRC configuration for enterprise clients across multiple databases.</p>
+                            <div>
+                                <span class="tool-badge">SQL Server</span>
+                                <span class="tool-badge">SAI360 GRC</span>
+                                <span class="tool-badge">Power BI</span>
+                                <span class="tool-badge">Pentaho PDI</span>
+                                <span class="tool-badge">JIRA</span>
+                                <span class="tool-badge">ServiceNow</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex flex-col md:flex-row gap-6">
-                        <div class="md:w-1/4">
-                            <p class="text-purple-600 font-semibold">2016 - 2019</p>
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
                         </div>
-                        <div class="md:w-3/4">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-1">UX Designer</h3>
-                            <p class="text-purple-600 mb-2">Digital Innovations Co.</p>
-                            <p class="text-gray-600">Designed and tested user interfaces for mobile and web applications, conducted user research, and created design systems for consistent product experiences.</p>
+                        <div class="pb-8 flex-1">
+                            <p class="text-purple-600 font-semibold text-sm mb-1">Oct 2016 – May 2019</p>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-1">Technical Support Specialist</h3>
+                            <p class="text-purple-600 font-medium mb-3">Tata Consultancy Services</p>
+                            <p class="text-gray-600 mb-3">L2/L3 application support for enterprise clients. Led continuous improvement as SPOC, managed incidents and changes, and provided remote and on-site technical support. Backup lead for a team of 10.</p>
+                            <div>
+                                <span class="tool-badge">HPSM</span>
+                                <span class="tool-badge">Zendesk</span>
+                                <span class="tool-badge">JIRA</span>
+                                <span class="tool-badge">Primavera P6</span>
+                                <span class="tool-badge">BWise</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex flex-col md:flex-row gap-6">
-                        <div class="md:w-1/4">
-                            <p class="text-purple-600 font-semibold">2014 - 2016</p>
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
                         </div>
-                        <div class="md:w-3/4">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-1">Junior Designer</h3>
-                            <p class="text-purple-600 mb-2">Creative Studio</p>
-                            <p class="text-gray-600">Assisted senior designers with various projects, created marketing materials, and developed foundational design skills.</p>
+                        <div class="pb-8 flex-1">
+                            <p class="text-purple-600 font-semibold text-sm mb-1">Aug 2012 – Oct 2016</p>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-1">EPM Consultant / Application Support Engineer</h3>
+                            <p class="text-purple-600 font-medium mb-3">Tata Consultancy Services</p>
+                            <p class="text-gray-600 mb-3">MS Project Server 2010 administrator and PMO services manager. Managed ITER project schedules in Primavera P6, built SharePoint dashboards, developed risk workflows, and implemented automation initiatives.</p>
+                            <div>
+                                <span class="tool-badge">MS Project Server</span>
+                                <span class="tool-badge">Primavera P6</span>
+                                <span class="tool-badge">SharePoint</span>
+                                <span class="tool-badge">InfoPath</span>
+                                <span class="tool-badge">Office 365</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="pb-2 flex-1">
+                            <p class="text-purple-600 font-semibold text-sm mb-1">Jan 2013 – Apr 2013</p>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-1">Assistant Systems Engineer</h3>
+                            <p class="text-purple-600 font-medium mb-3">Tata Consultancy Services</p>
+                            <p class="text-gray-600">Maintained project schedules for the International Thermonuclear Experimental Reactor (ITER) projects in Primavera P6.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Get in Touch Section -->
+            <!-- Certifications & Tools -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Certifications</h2>
+                    <div class="cert-badge">
+                        <i class="fas fa-certificate text-purple-600 text-xl"></i>
+                        <div>
+                            <p class="font-semibold text-gray-800">ITIL v3 Foundation</p>
+                            <p class="text-sm text-gray-500">Certificate in IT Service Management</p>
+                        </div>
+                    </div>
+                    <div class="cert-badge">
+                        <i class="fas fa-certificate text-purple-600 text-xl"></i>
+                        <div>
+                            <p class="font-semibold text-gray-800">BWise Functional Administrator</p>
+                            <p class="text-sm text-gray-500">SAI360 GRC Platform</p>
+                        </div>
+                    </div>
+                    <div class="cert-badge">
+                        <i class="fas fa-certificate text-purple-600 text-xl"></i>
+                        <div>
+                            <p class="font-semibold text-gray-800">BWise Technical Administrator</p>
+                            <p class="text-sm text-gray-500">SAI360 GRC Platform</p>
+                        </div>
+                    </div>
+                    <div class="cert-badge">
+                        <i class="fas fa-certificate text-purple-600 text-xl"></i>
+                        <div>
+                            <p class="font-semibold text-gray-800">BWise Portlet Development</p>
+                            <p class="text-sm text-gray-500">SAI360 GRC Platform</p>
+                        </div>
+                    </div>
+                    <div class="cert-badge">
+                        <i class="fas fa-certificate text-purple-600 text-xl"></i>
+                        <div>
+                            <p class="font-semibold text-gray-800">PL-900: Microsoft Power Platform Fundamentals</p>
+                            <p class="text-sm text-gray-500">Microsoft</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Tools &amp; Technologies</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-semibold text-gray-700 mb-1">Application Servers</p>
+                            <div><span class="tool-badge">WebLogic 12c</span><span class="tool-badge">Tomcat</span><span class="tool-badge">IIS</span></div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-700 mb-1">Database &amp; Development</p>
+                            <div><span class="tool-badge">SQL Server Management Studio</span><span class="tool-badge">SQL Developer</span><span class="tool-badge">VS Code</span></div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-700 mb-1">Reporting &amp; BI</p>
+                            <div><span class="tool-badge">Power BI</span><span class="tool-badge">SAP BO</span><span class="tool-badge">SSRS</span><span class="tool-badge">Excel</span><span class="tool-badge">Universe Design Tool</span></div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-700 mb-1">Project &amp; Agile</p>
+                            <div><span class="tool-badge">JIRA</span><span class="tool-badge">Confluence</span><span class="tool-badge">MS Planner</span><span class="tool-badge">Asana</span></div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-700 mb-1">ITSM &amp; Ticketing</p>
+                            <div><span class="tool-badge">ServiceNow</span><span class="tool-badge">HPSM</span><span class="tool-badge">Zendesk</span></div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-700 mb-1">EPM &amp; GRC</p>
+                            <div><span class="tool-badge">Primavera P6</span><span class="tool-badge">MS Project Server</span><span class="tool-badge">SAI360 GRC</span><span class="tool-badge">Pentaho PDI</span></div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-700 mb-1">Prototyping &amp; Troubleshooting</p>
+                            <div><span class="tool-badge">Draw.io</span><span class="tool-badge">Figma</span><span class="tool-badge">Fiddler</span><span class="tool-badge">Browser Dev Tools</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education & Achievements -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Education</h2>
+                    <div class="border-l-4 border-purple-400 pl-4 mb-6">
+                        <p class="text-purple-600 font-semibold text-sm">Jul 2008 – May 2012</p>
+                        <h3 class="text-lg font-semibold text-gray-800">B.Tech — Mechanical Engineering</h3>
+                        <p class="text-gray-600 mb-1">Sikkim Manipal Institute of Technology</p>
+                        <p class="text-sm text-gray-500">CGPA: 8.18 &nbsp;|&nbsp; Cultural Secretary &amp; Student Council</p>
+                        <p class="text-sm text-gray-500 mt-1">Presented research paper on Condition Monitoring at ISM Dhanbad</p>
+                    </div>
+                    <div class="border-l-4 border-purple-200 pl-4 mb-6">
+                        <p class="text-purple-600 font-semibold text-sm">2008</p>
+                        <h3 class="text-lg font-semibold text-gray-800">Standard XII / H.S.C.</h3>
+                        <p class="text-gray-600">DAV Model School</p>
+                        <p class="text-sm text-gray-500">CBSE — 71.16% &nbsp;|&nbsp; Head Boy</p>
+                    </div>
+                    <div class="border-l-4 border-purple-200 pl-4">
+                        <p class="text-purple-600 font-semibold text-sm">2006</p>
+                        <h3 class="text-lg font-semibold text-gray-800">Standard X / SSC</h3>
+                        <p class="text-gray-600">De Nobili School</p>
+                        <p class="text-sm text-gray-500">ICSE — 72% &nbsp;|&nbsp; Student Council, Scouts &amp; Guides, Debate Club</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Achievements &amp; Recognition</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3 p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-400">
+                            <i class="fas fa-star text-yellow-500 mt-1"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">Star of the Month Award — ×2</p>
+                                <p class="text-sm text-gray-600">Awarded twice at Tata Consultancy Services for outstanding performance</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-purple-50 rounded-lg border-l-4 border-purple-400">
+                            <i class="fas fa-file-alt text-purple-500 mt-1"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">Research Paper Publication</p>
+                                <p class="text-sm text-gray-600">Presented paper on Condition Monitoring at Indian School of Mines (ISM) Dhanbad</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                            <i class="fas fa-user-tie text-blue-500 mt-1"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">Cultural Secretary — Student Council</p>
+                                <p class="text-sm text-gray-600">Elected Cultural Secretary at Sikkim Manipal Institute of Technology; Head Boy at school</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-red-50 rounded-lg border-l-4 border-red-400">
+                            <i class="fas fa-heart text-red-500 mt-1"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">Australian Red Cross — Lifeblood Donor</p>
+                                <p class="text-sm text-gray-600">Active community contributor through regular blood donation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Get in Touch -->
             <div class="bg-white rounded-xl shadow-md p-8">
                 <h2 class="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -518,10 +634,10 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-gray-800">Email</h3>
-                                <p class="text-purple-600">alex.johnson@example.com</p>
+                                <a href="mailto:zubinsubawalla@gmail.com" class="text-purple-600 hover:underline">zubinsubawalla@gmail.com</a>
                             </div>
                         </div>
-                        <p class="text-gray-600 text-sm">For professional inquiries and collaboration opportunities</p>
+                        <p class="text-gray-600 text-sm">For professional enquiries and collaboration opportunities</p>
                     </div>
                     <div class="bg-purple-50 p-6 rounded-lg">
                         <div class="flex items-center mb-4">
@@ -530,10 +646,10 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-gray-800">Phone</h3>
-                                <p class="text-purple-600">+1 (555) 123-4567</p>
+                                <p class="text-purple-600">+61 434 697 445</p>
                             </div>
                         </div>
-                        <p class="text-gray-600 text-sm">Available Monday to Friday, 9am - 5pm EST</p>
+                        <p class="text-gray-600 text-sm">Available during business hours, Perth WA (AWST)</p>
                     </div>
                     <div class="bg-purple-50 p-6 rounded-lg">
                         <div class="flex items-center mb-4">
@@ -542,7 +658,7 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-gray-800">LinkedIn</h3>
-                                <p class="text-purple-600">linkedin.com/in/alexjohnson</p>
+                                <a href="https://www.linkedin.com/in/zubinsubawalla/" target="_blank" class="text-purple-600 hover:underline">linkedin.com/in/zubinsubawalla</a>
                             </div>
                         </div>
                         <p class="text-gray-600 text-sm">Connect for professional networking</p>
@@ -554,164 +670,136 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-gray-800">Location</h3>
-                                <p class="text-purple-600">New York, NY</p>
+                                <p class="text-purple-600">Perth, WA 6000, Australia</p>
                             </div>
                         </div>
-                        <p class="text-gray-600 text-sm">Open to remote work or local opportunities</p>
+                        <p class="text-gray-600 text-sm">Open to local and remote opportunities</p>
                     </div>
                 </div>
                 <div class="mt-8">
-                    <a href="#" class="inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
-                        <i class="fas fa-paper-plane mr-2"></i> Send Message
+                    <a href="https://www.linkedin.com/in/zubinsubawalla/" target="_blank" class="inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                        <i class="fas fa-paper-plane mr-2"></i> Get in Touch
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Passion Projects Profile -->
+        <!-- ===================== PASSION PROFILE ===================== -->
         <div id="passionProfile" class="profile-section hidden">
-            <!-- Personal Introduction -->
+
             <div class="bg-white rounded-xl shadow-md p-8 mb-8">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">The Real Me</h2>
                 <p class="text-gray-600 leading-relaxed">
-                    When I'm not in professional mode, you'll find me exploring creative outlets that fuel my soul. 
-                    I believe life is too short to be serious all the time, so I fill my free time with activities that 
-                    spark joy, challenge my perspective, and connect me with amazing people. Here's a glimpse into 
-                    what makes me tick when the workday ends!
+                    When I'm not deep in SQL queries or managing GRC deployments, you'll find me out in the world with a camera, on my bike, or hitting the trails around Western Australia. I love exploring new places, playing guitar, swimming, and staying curious about all things tech. Life's too short not to have a few adventures along the way!
                 </p>
             </div>
 
-            <!-- Hobbies -->
             <div class="bg-white rounded-xl shadow-md p-8 mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">My Hobbies & Creative Outlets</h2>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Hobbies &amp; Interests</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="hobby-card bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl transition-all duration-300">
-                        <div class="text-purple-600 text-3xl mb-3">
-                            <i class="fas fa-camera"></i>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 text-lg mb-2">Street Photography</h3>
-                        <p class="text-gray-600 text-sm">
-                            Capturing raw, unscripted moments of urban life. My camera is my constant companion on city walks.
-                        </p>
+                        <div class="text-purple-600 text-3xl mb-3"><i class="fas fa-camera"></i></div>
+                        <h3 class="font-semibold text-gray-800 text-lg mb-2">Photography</h3>
+                        <p class="text-gray-600 text-sm">Capturing landscapes, travel moments, and the beauty of everyday life. The camera goes wherever the adventure takes me.</p>
                     </div>
                     <div class="hobby-card bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-xl transition-all duration-300">
-                        <div class="text-blue-600 text-3xl mb-3">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 text-lg mb-2">Experimental Cooking</h3>
-                        <p class="text-gray-600 text-sm">
-                            My kitchen is a lab where I fuse flavors from different cultures. Current obsession: Korean-Mexican fusion!
-                        </p>
+                        <div class="text-blue-600 text-3xl mb-3"><i class="fas fa-bicycle"></i></div>
+                        <h3 class="font-semibold text-gray-800 text-lg mb-2">Cycling</h3>
+                        <p class="text-gray-600 text-sm">Core member of the TCS Cycling Club Pune Maitree. Exploring Perth's trails and roads on two wheels is one of life's great pleasures.</p>
+                    </div>
+                    <div class="hobby-card bg-gradient-to-br from-green-50 to-teal-50 p-6 rounded-xl transition-all duration-300">
+                        <div class="text-green-600 text-3xl mb-3"><i class="fas fa-mountain"></i></div>
+                        <h3 class="font-semibold text-gray-800 text-lg mb-2">Hiking &amp; Trekking</h3>
+                        <p class="text-gray-600 text-sm">From day hikes to longer treks, Western Australia's incredible landscapes are always calling. Nothing beats a good trail.</p>
+                    </div>
+                    <div class="hobby-card bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-xl transition-all duration-300">
+                        <div class="text-yellow-600 text-3xl mb-3"><i class="fas fa-map-marked-alt"></i></div>
+                        <h3 class="font-semibold text-gray-800 text-lg mb-2">Travel &amp; Exploration</h3>
+                        <p class="text-gray-600 text-sm">A passionate travel enthusiast always planning the next adventure — new countries, new cultures, new perspectives.</p>
                     </div>
                     <div class="hobby-card bg-gradient-to-br from-red-50 to-pink-50 p-6 rounded-xl transition-all duration-300">
-                        <div class="text-red-600 text-3xl mb-3">
-                            <i class="fas fa-hiking"></i>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 text-lg mb-2">Urban Exploration</h3>
-                        <p class="text-gray-600 text-sm">
-                            Discovering hidden gems and forgotten spaces in the city. Every alley has a story to tell.
-                        </p>
+                        <div class="text-red-600 text-3xl mb-3"><i class="fas fa-guitar"></i></div>
+                        <h3 class="font-semibold text-gray-800 text-lg mb-2">Playing Guitar</h3>
+                        <p class="text-gray-600 text-sm">Music has always been a big part of my life — playing guitar and listening to music are my go-to ways to unwind.</p>
+                    </div>
+                    <div class="hobby-card bg-gradient-to-br from-indigo-50 to-blue-50 p-6 rounded-xl transition-all duration-300">
+                        <div class="text-indigo-600 text-3xl mb-3"><i class="fas fa-swimmer"></i></div>
+                        <h3 class="font-semibold text-gray-800 text-lg mb-2">Swimming</h3>
+                        <p class="text-gray-600 text-sm">Living in Perth means the ocean is always close. Swimming is both a passion and a great way to stay active.</p>
+                    </div>
+                    <div class="hobby-card bg-gradient-to-br from-gray-50 to-slate-50 p-6 rounded-xl transition-all duration-300">
+                        <div class="text-gray-600 text-3xl mb-3"><i class="fas fa-rss"></i></div>
+                        <h3 class="font-semibold text-gray-800 text-lg mb-2">Reading Tech Blogs</h3>
+                        <p class="text-gray-600 text-sm">Always staying curious and up to date. I love reading about new technologies, tools, and industry developments.</p>
+                    </div>
+                    <div class="hobby-card bg-gradient-to-br from-orange-50 to-amber-50 p-6 rounded-xl transition-all duration-300">
+                        <div class="text-orange-600 text-3xl mb-3"><i class="fas fa-users"></i></div>
+                        <h3 class="font-semibold text-gray-800 text-lg mb-2">Event Organising</h3>
+                        <p class="text-gray-600 text-sm">Organised events for college fests and workplace activities. I love bringing people together and creating memorable experiences.</p>
+                    </div>
+                    <div class="hobby-card bg-gradient-to-br from-rose-50 to-red-50 p-6 rounded-xl transition-all duration-300">
+                        <div class="text-rose-600 text-3xl mb-3"><i class="fas fa-heart"></i></div>
+                        <h3 class="font-semibold text-gray-800 text-lg mb-2">Community Service</h3>
+                        <p class="text-gray-600 text-sm">Proud Australian Red Cross Lifeblood donor. Giving back to the community is something I feel strongly about.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Follow Me Section -->
             <div class="bg-white rounded-xl shadow-md p-8 mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">Follow My Adventures</h2>
-                <p class="text-gray-600 mb-6">
-                    I share my creative projects and daily discoveries on these platforms. Let's connect!
-                </p>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Find Me Online</h2>
+                <p class="text-gray-600 mb-6">Want to follow my adventures or get in touch? Connect with me here.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg flex items-center">
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg flex items-center">
                         <div class="bg-white p-3 rounded-full mr-4 shadow-sm">
-                            <i class="fab fa-instagram text-2xl text-pink-600"></i>
+                            <i class="fab fa-linkedin text-2xl text-blue-700"></i>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-gray-800">Instagram</h3>
-                            <p class="text-purple-600">@alex.explores</p>
-                            <p class="text-gray-600 text-sm mt-1">Daily photography and food adventures</p>
+                            <h3 class="font-semibold text-gray-800">LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/zubinsubawalla/" target="_blank" class="text-purple-600 hover:underline">linkedin.com/in/zubinsubawalla</a>
+                            <p class="text-gray-600 text-sm mt-1">Professional updates and career milestones</p>
                         </div>
                     </div>
-                    <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg flex items-center">
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg flex items-center">
                         <div class="bg-white p-3 rounded-full mr-4 shadow-sm">
-                            <i class="fab fa-youtube text-2xl text-red-600"></i>
+                            <i class="fas fa-user-circle text-2xl text-purple-600"></i>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-gray-800">YouTube</h3>
-                            <p class="text-purple-600">Alex's Creative Kitchen</p>
-                            <p class="text-gray-600 text-sm mt-1">Cooking tutorials and recipe experiments</p>
+                            <h3 class="font-semibold text-gray-800">About.me</h3>
+                            <a href="https://about.me/zubinsubawalla" target="_blank" class="text-purple-600 hover:underline">about.me/zubinsubawalla</a>
+                            <p class="text-gray-600 text-sm mt-1">Personal profile and bio</p>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-gray-50 to-slate-50 p-6 rounded-lg flex items-center">
+                        <div class="bg-white p-3 rounded-full mr-4 shadow-sm">
+                            <i class="fas fa-globe text-2xl text-gray-700"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Portfolio Site</h3>
+                            <a href="https://zubinsubawalla.mystrikingly.com/" target="_blank" class="text-purple-600 hover:underline">zubinsubawalla.mystrikingly.com</a>
+                            <p class="text-gray-600 text-sm mt-1">My personal portfolio and projects</p>
                         </div>
                     </div>
                     <div class="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-lg flex items-center">
                         <div class="bg-white p-3 rounded-full mr-4 shadow-sm">
-                            <i class="fab fa-twitter text-2xl text-blue-400"></i>
+                            <i class="fas fa-map-marker-alt text-2xl text-green-600"></i>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-gray-800">Twitter</h3>
-                            <p class="text-purple-600">@alexthoughts</p>
-                            <p class="text-gray-600 text-sm mt-1">Random musings and creative ideas</p>
+                            <h3 class="font-semibold text-gray-800">Based in</h3>
+                            <p class="text-purple-600">Perth, Western Australia</p>
+                            <p class="text-gray-600 text-sm mt-1">Exploring every corner of WA and beyond</p>
                         </div>
                     </div>
-                    <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg flex items-center">
-                        <div class="bg-white p-3 rounded-full mr-4 shadow-sm">
-                            <i class="fab fa-tiktok text-2xl text-black"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-gray-800">TikTok</h3>
-                            <p class="text-purple-600">@urbanexplorer</p>
-                            <p class="text-gray-600 text-sm mt-1">Short videos of hidden city spots</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Blog -->
-            <div class="bg-white rounded-xl shadow-md p-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">Thoughts & Musings</h2>
-                <div class="space-y-6">
-                    <div class="border-b border-gray-100 pb-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Why Imperfections Make Better Art</h3>
-                        <p class="text-purple-600 mb-3">June 12, 2023 • 5 min read</p>
-                        <p class="text-gray-600 mb-3">
-                            Exploring how flaws and accidents often lead to the most interesting creative breakthroughs...
-                        </p>
-                        <a href="#" class="text-purple-600 font-medium hover:text-purple-800 transition-colors">Read more →</a>
-                    </div>
-                    <div class="border-b border-gray-100 pb-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">The Hidden Beauty of Urban Decay</h3>
-                        <p class="text-purple-600 mb-3">April 28, 2023 • 7 min read</p>
-                        <p class="text-gray-600 mb-3">
-                            A photographic journey through abandoned spaces and what they teach us about time and memory...
-                        </p>
-                        <a href="#" class="text-purple-600 font-medium hover:text-purple-800 transition-colors">Read more →</a>
-                    </div>
-                    <div class="pb-2">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Fusion Cooking: When Cultures Collide Deliciously</h3>
-                        <p class="text-purple-600 mb-3">March 15, 2023 • 4 min read</p>
-                        <p class="text-gray-600 mb-3">
-                            My experiments with combining unexpected culinary traditions and the surprising results...
-                        </p>
-                        <a href="#" class="text-purple-600 font-medium hover:text-purple-800 transition-colors">Read more →</a>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#" class="inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
-                        View All Posts
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Toggle between work and passion profiles
         document.getElementById('profileToggle').addEventListener('change', function() {
             const workProfile = document.getElementById('workProfile');
             const passionProfile = document.getElementById('passionProfile');
             const workHeader = document.getElementById('workHeader');
             const passionHeader = document.getElementById('passionHeader');
-            
             if (this.checked) {
                 workProfile.classList.add('hidden');
                 passionProfile.classList.remove('hidden');
@@ -725,50 +813,32 @@
             }
         });
 
-        // Handle skill card clicks to show project details
         document.querySelectorAll('.skill-card').forEach(card => {
             card.addEventListener('click', function() {
                 const projectId = this.getAttribute('data-project');
                 const projectDetails = document.getElementById('projectDetails');
                 const journeySection = document.getElementById('journeySection');
-                
-                // Hide all project details first
-                document.querySelectorAll('.project-detail').forEach(detail => {
-                    detail.classList.remove('active');
-                });
-                
-                // Show the selected project
+                document.querySelectorAll('.project-detail').forEach(detail => detail.classList.remove('active'));
                 document.getElementById(projectId).classList.add('active');
-                
-                // Show project details container and hide journey section
                 projectDetails.classList.remove('hidden');
                 journeySection.classList.add('hidden');
-                
-                // Scroll to project details
                 projectDetails.scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Handle back button clicks
         document.querySelectorAll('.back-button').forEach(button => {
             button.addEventListener('click', function() {
                 const projectDetails = document.getElementById('projectDetails');
                 const journeySection = document.getElementById('journeySection');
-                
-                // Hide project details and show journey section
                 projectDetails.classList.add('hidden');
                 journeySection.classList.remove('hidden');
-                
-                // Scroll to journey section
                 journeySection.scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Handle download resume button click
         document.querySelector('.download-btn').addEventListener('click', function(e) {
             e.preventDefault();
-            alert('Downloading resume...');
-            // In a real implementation, this would link to an actual PDF file
+            alert('Resume download coming soon!');
         });
     </script>
 </body>
