@@ -855,25 +855,40 @@
             button.addEventListener('click', function() {
                 const projectDetails = document.getElementById('projectDetails');
                 const journeySection = document.getElementById('journeySection');
-                projectDetails.classList.add('hi
-        // ── Auto-load articles from tinylogger RSS via rss2json ──
+                projectDetails.classList.add('hidden');
+                journeySection.classList.remove('hidden');
+                journeySection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        document.querySelector('.download-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Resume download coming soon!');
+        });
+
+        // ── Auto-load articles from tinylogger RSS ──
         (function loadArticles() {
-            const feedUrl = 'https://www.tinylogger.com/zuzu/rss';
-            const apiUrl  = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feedUrl) + '&count=6';
-            const loading = document.getElementById('articlesLoading');
-            const error   = document.getElementById('articlesError');
-            const list    = document.getElementById('articlesList');
+            const feedUrl  = 'https://www.tinylogger.com/zuzu/rss';
+            const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(feedUrl);
+            const loading  = document.getElementById('articlesLoading');
+            const errorEl  = document.getElementById('articlesError');
+            const list     = document.getElementById('articlesList');
 
             function formatDate(dateStr) {
                 if (!dateStr) return '';
                 const d = new Date(dateStr);
-                return d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+                return isNaN(d) ? dateStr : d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+            }
+
+            function getText(el, tag) {
+                const node = el.querySelector(tag);
+                return node ? (node.textContent || '').trim() : '';
             }
 
             function stripHtml(html) {
                 const tmp = document.createElement('div');
                 tmp.innerHTML = html;
-                return tmp.textContent || tmp.innerText || '';
+                return (tmp.textContent || tmp.innerText || '').trim();
             }
 
             function truncate(str, n) {
@@ -881,51 +896,68 @@
                 return plain.length > n ? plain.slice(0, n).trimEnd() + '\u2026' : plain;
             }
 
-            fetch(apiUrl)
+            function renderCard(item) {
+                const title   = getText(item, 'title');
+                const link    = getText(item, 'link') || (item.querySelector('link') && item.querySelector('link').textContent) || '#';
+                const pubDate = getText(item, 'pubDate');
+                const desc    = getText(item, 'description');
+                const excerpt = truncate(desc, 140);
+
+                const card = document.createElement('a');
+                card.href   = link.trim();
+                card.target = '_blank';
+                card.rel    = 'noopener noreferrer';
+                card.style.cssText = 'text-decoration:none;display:block;border:1px solid #f3f4f6;border-radius:12px;padding:24px;transition:box-shadow 0.2s,transform 0.2s;';
+
+                card.innerHTML =
+                    '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:10px;">' +
+                        '<h3 class="article-title" style="font-weight:600;color:#1f2937;font-size:0.95rem;line-height:1.4;margin:0;">' + title + '</h3>' +
+                        '<i class="fas fa-external-link-alt" style="color:#d1d5db;flex-shrink:0;margin-top:3px;font-size:0.75rem;"></i>' +
+                    '</div>' +
+                    (excerpt ? '<p style="color:#6b7280;font-size:0.85rem;line-height:1.6;margin:0 0 14px 0;">' + excerpt + '</p>' : '') +
+                    '<div style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#9ca3af;">' +
+                        '<i class="fas fa-calendar-alt"></i><span>' + formatDate(pubDate) + '</span>' +
+                    '</div>';
+
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 8px 20px rgba(0,0,0,0.08)';
+                    this.style.transform = 'translateY(-3px)';
+                    this.querySelector('.article-title').style.color = '#7c3aed';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '';
+                    this.style.transform = '';
+                    this.querySelector('.article-title').style.color = '#1f2937';
+                });
+                return card;
+            }
+
+            fetch(proxyUrl)
                 .then(function(res) { return res.json(); })
                 .then(function(data) {
+                    const parser  = new DOMParser();
+                    const xmlDoc  = parser.parseFromString(data.contents, 'text/xml');
+                    const items   = xmlDoc.querySelectorAll('item');
+
                     loading.classList.add('hidden');
-                    if (!data.items || data.items.length === 0) {
-                        error.classList.remove('hidden');
+
+                    if (!items || items.length === 0) {
+                        errorEl.classList.remove('hidden');
                         return;
                     }
-                    data.items.forEach(function(item) {
-                        const card = document.createElement('a');
-                        card.href   = item.link;
-                        card.target = '_blank';
-                        card.rel    = 'noopener noreferrer';
-                        card.className = 'block group border border-gray-100 rounded-xl p-6 hover:shadow-md transition-all duration-300 cursor-pointer';
-                        card.style.cssText = 'text-decoration:none;';
 
-                        const date    = formatDate(item.pubDate);
-                        const excerpt = truncate(item.description || item.content || '', 140);
-
-                        card.innerHTML =
-                            '<div class="flex items-start justify-between gap-4 mb-3">' +
-                                '<h3 style="font-weight:600;color:#1f2937;font-size:0.95rem;line-height:1.4;">' +
-                                    (item.title || 'Untitled') +
-                                '</h3>' +
-                                '<i class="fas fa-external-link-alt" style="color:#d1d5db;flex-shrink:0;margin-top:3px;font-size:0.75rem;"></i>' +
-                            '</div>' +
-                            (excerpt ? '<p style="color:#6b7280;font-size:0.85rem;line-height:1.6;margin-bottom:16px;">' + excerpt + '</p>' : '') +
-                            '<div style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#9ca3af;">' +
-                                '<i class="fas fa-calendar-alt"></i>' +
-                                '<span>' + date + '</span>' +
-                            '</div>';
-
-                        card.addEventListener('mouseenter', function() {
-                            this.querySelector('h3').style.color = '#7c3aed';
-                        });
-                        card.addEventListener('mouseleave', function() {
-                            this.querySelector('h3').style.color = '#1f2937';
-                        });
-
-                        list.appendChild(card);
-                    });
+                    const max = Math.min(items.length, 6);
+                    for (let i = 0; i < max; i++) {
+                        list.appendChild(renderCard(items[i]));
+                    }
                     list.classList.remove('hidden');
                 })
-                .catch(function() {
+                .catch(function(err) {
+                    console.error('RSS fetch error:', err);
                     loading.classList.add('hidden');
-                    error.classList.remove('hidden');
+                    errorEl.classList.remove('hidden');
                 });
         })();
+    </script>
+</body>
+</html>
