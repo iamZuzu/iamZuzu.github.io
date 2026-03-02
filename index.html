@@ -4,16 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zubin Subawalla</title>
-    <script src="https://cdn.tailwindcss.com/3.4.1/tailwind.min.js"></script>
-    <script>
-        // Enable class-based dark mode for Tailwind
-        tailwind.config = { darkMode: 'class' };
-        // Apply saved preference immediately to prevent flash
-        if (localStorage.getItem('theme') === 'dark' ||
-           (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .profile-section { transition: all 0.3s ease; }
@@ -74,105 +65,9 @@
             flex-grow: 1;
             margin: 4px auto;
         }
-        /* ── Dark mode toggle button ── */
-        #darkToggle {
-            position: fixed;
-            top: 18px;
-            right: 18px;
-            z-index: 1000;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-            background: #fff;
-            color: #7c3aed;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-        }
-        #darkToggle:hover { transform: scale(1.1); box-shadow: 0 4px 18px rgba(0,0,0,0.18); }
-        .dark #darkToggle { background: #1e293b; color: #a78bfa; }
-
-        /* ── Dark mode overrides ── */
-        .dark body                          { background-color: #0f172a; color: #e2e8f0; }
-        .dark .bg-gray-50                   { background-color: #0f172a !important; }
-        .dark .bg-white                     { background-color: #1e293b !important; }
-        .dark .text-gray-800                { color: #f1f5f9 !important; }
-        .dark .text-gray-700                { color: #e2e8f0 !important; }
-        .dark .text-gray-600                { color: #94a3b8 !important; }
-        .dark .text-gray-500                { color: #64748b !important; }
-        .dark .text-gray-400                { color: #475569 !important; }
-        .dark .shadow-md                    { box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important; }
-
-        /* Cards & containers */
-        .dark .bg-purple-50                 { background-color: #2d1f5e !important; }
-        .dark .bg-purple-100                { background-color: #3b2170 !important; }
-        .dark .bg-yellow-50                 { background-color: #2d2500 !important; }
-        .dark .bg-blue-50                   { background-color: #0c1a2e !important; }
-        .dark .bg-red-50                    { background-color: #2d0f0f !important; }
-        .dark .bg-green-50                  { background-color: #0d2018 !important; }
-        .dark .bg-indigo-50                 { background-color: #141b35 !important; }
-        .dark .bg-gray-50                   { background-color: #1a2234 !important; }
-        .dark .bg-orange-50                 { background-color: #2d1a00 !important; }
-        .dark .bg-rose-50                   { background-color: #2d0f1a !important; }
-        .dark .border-gray-100              { border-color: #334155 !important; }
-
-        /* Gradient hobby/skill cards */
-        .dark .bg-gradient-to-br,
-        .dark .bg-gradient-to-r            { background: #1e293b !important; }
-
-        /* Tool badges */
-        .dark .tool-badge                   { background-color: #2d1f5e; color: #c4b5fd; }
-
-        /* Cert badges */
-        .dark .cert-badge                   { background: linear-gradient(135deg, #1e1433, #2d1f5e); }
-
-        /* Timeline */
-        .dark .timeline-dot                 { border-color: #2d1f5e; }
-        .dark .timeline-line                { background-color: #334155; }
-
-        /* Border accents */
-        .dark .border-l-4.border-purple-400 { border-color: #7c3aed !important; }
-        .dark .border-l-4.border-purple-200 { border-color: #4c1d95 !important; }
-        .dark .border-l-4.border-yellow-400 { border-color: #d97706 !important; }
-        .dark .border-l-4.border-blue-400   { border-color: #3b82f6 !important; }
-        .dark .border-l-4.border-red-400    { border-color: #ef4444 !important; }
-
-        /* Toggle container (Work/Passion toggle) */
-        .dark .toggle-container             { background-color: rgba(109, 40, 217, 0.3) !important; }
-
-        /* Inner border on article cards (inline style override via JS) */
-        .dark .article-card-inner          { border-color: #334155 !important; }
-
-        /* Text color overrides */
-        .dark h1, .dark h2, .dark h3       { color: #f1f5f9; }
-        .dark p                            { color: #94a3b8; }
-        .dark .text-purple-600             { color: #a78bfa !important; }
-        .dark .text-purple-700             { color: #c4b5fd !important; }
-        .dark .text-purple-800             { color: #ddd6fe !important; }
-        .dark .text-blue-700               { color: #60a5fa !important; }
-        .dark .text-gray-700.font-semibold { color: #e2e8f0 !important; }
-
-        /* Hover states */
-        .dark .skill-card:hover,
-        .dark .hobby-card:hover            { box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
-
-        /* Input/links */
-        .dark a.text-purple-600            { color: #a78bfa !important; }
-        .dark a.hover\:underline:hover     { color: #c4b5fd; }
-
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen font-sans transition-colors duration-300">
-
-    <!-- Dark mode toggle -->
-    <button id="darkToggle" title="Toggle dark mode" aria-label="Toggle dark mode">
-        <i id="darkIcon" class="fas fa-moon"></i>
-    </button>
+<body class="bg-gray-50 min-h-screen font-sans">
     <div class="container mx-auto px-4 py-8 max-w-6xl">
 
         <!-- Work Profile Header -->
@@ -187,7 +82,7 @@
                 &nbsp;|&nbsp;
                 <i class="fas fa-phone mr-1 text-purple-500"></i>+61 434 697 445
                 &nbsp;|&nbsp;
-                <i class="fas fa-envelope mr-1 text-purple-500"></i>zubinsubawalla@gmail.com
+                <i class="fas fa-envelope mr-1 text-purple-500"></i><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9de7e8fff4f3eee8fffceafcf1f1fcddfaf0fcf4f1b3fef2f0">[email&#160;protected]</a>
             </p>
             <div class="flex gap-3 mb-4">
                 <a href="https://www.linkedin.com/in/zubinsubawalla/" target="_blank" class="social-icon text-2xl text-blue-700 hover:text-blue-900"><i class="fab fa-linkedin"></i></a>
@@ -924,7 +819,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         document.getElementById('profileToggle').addEventListener('change', function() {
             const workProfile = document.getElementById('workProfile');
             const passionProfile = document.getElementById('passionProfile');
@@ -971,46 +866,13 @@
             alert('Resume download coming soon!');
         });
 
-        // ── Dark mode toggle ──
-        (function() {
-            const html     = document.documentElement;
-            const btn      = document.getElementById('darkToggle');
-            const icon     = document.getElementById('darkIcon');
-
-            function applyTheme(dark) {
-                if (dark) {
-                    html.classList.add('dark');
-                    icon.className = 'fas fa-sun';
-                    // Also fix inline-style article cards which Tailwind can't override
-                    document.querySelectorAll('#articlesList a').forEach(function(card) {
-                        card.style.borderColor = '#334155';
-                        card.style.backgroundColor = '#1e293b';
-                    });
-                } else {
-                    html.classList.remove('dark');
-                    icon.className = 'fas fa-moon';
-                    document.querySelectorAll('#articlesList a').forEach(function(card) {
-                        card.style.borderColor = '#f3f4f6';
-                        card.style.backgroundColor = '';
-                    });
-                }
-            }
-
-            btn.addEventListener('click', function() {
-                const isDark = !html.classList.contains('dark');
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                applyTheme(isDark);
-            });
-
-            // Set correct icon on page load
-            applyTheme(html.classList.contains('dark'));
-        })();
-
-        // ── Load articles from local articles.json (kept fresh by GitHub Actions) ──
+        // ── Auto-load articles from tinylogger RSS ──
         (function loadArticles() {
-            const loading = document.getElementById('articlesLoading');
-            const errorEl = document.getElementById('articlesError');
-            const list    = document.getElementById('articlesList');
+            const feedUrl  = 'https://www.tinylogger.com/zuzu/rss';
+            const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(feedUrl);
+            const loading  = document.getElementById('articlesLoading');
+            const errorEl  = document.getElementById('articlesError');
+            const list     = document.getElementById('articlesList');
 
             function formatDate(dateStr) {
                 if (!dateStr) return '';
@@ -1018,9 +880,14 @@
                 return isNaN(d) ? dateStr : d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
             }
 
+            function getText(el, tag) {
+                const node = el.querySelector(tag);
+                return node ? (node.textContent || '').trim() : '';
+            }
+
             function stripHtml(html) {
                 const tmp = document.createElement('div');
-                tmp.innerHTML = html || '';
+                tmp.innerHTML = html;
                 return (tmp.textContent || tmp.innerText || '').trim();
             }
 
@@ -1029,29 +896,28 @@
                 return plain.length > n ? plain.slice(0, n).trimEnd() + '\u2026' : plain;
             }
 
-            function renderCard(article) {
-                // Handle both possible field names from tinylogger's export format
-                const title   = article.title   || article.name    || 'Untitled';
-                const link    = article.url     || article.link    || article.slug && ('https://www.tinylogger.com/zuzu/' + article.slug) || '#';
-                const date    = article.date    || article.created_at || article.published_at || '';
-                const body    = article.content || article.body    || article.text || '';
-                const excerpt = truncate(body, 140);
+            function renderCard(item) {
+                const title   = getText(item, 'title');
+                const link    = getText(item, 'link') || (item.querySelector('link') && item.querySelector('link').textContent) || '#';
+                const pubDate = getText(item, 'pubDate');
+                const desc    = getText(item, 'description');
+                const excerpt = truncate(desc, 140);
 
                 const card = document.createElement('a');
-                card.href   = link;
+                card.href   = link.trim();
                 card.target = '_blank';
                 card.rel    = 'noopener noreferrer';
                 card.style.cssText = 'text-decoration:none;display:block;border:1px solid #f3f4f6;border-radius:12px;padding:24px;transition:box-shadow 0.2s,transform 0.2s;';
 
                 card.innerHTML =
                     '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:10px;">' +
-                        '<h3 class="article-title" style="font-weight:600;color:#1f2937;font-size:0.95rem;line-height:1.4;margin:0;">' +
-                            title +
-                        '</h3>' +
+                        '<h3 class="article-title" style="font-weight:600;color:#1f2937;font-size:0.95rem;line-height:1.4;margin:0;">' + title + '</h3>' +
                         '<i class="fas fa-external-link-alt" style="color:#d1d5db;flex-shrink:0;margin-top:3px;font-size:0.75rem;"></i>' +
                     '</div>' +
                     (excerpt ? '<p style="color:#6b7280;font-size:0.85rem;line-height:1.6;margin:0 0 14px 0;">' + excerpt + '</p>' : '') +
-                    (date ? '<div style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#9ca3af;"><i class="fas fa-calendar-alt"></i><span>' + formatDate(date) + '</span></div>' : '');
+                    '<div style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#9ca3af;">' +
+                        '<i class="fas fa-calendar-alt"></i><span>' + formatDate(pubDate) + '</span>' +
+                    '</div>';
 
                 card.addEventListener('mouseenter', function() {
                     this.style.boxShadow = '0 8px 20px rgba(0,0,0,0.08)';
@@ -1061,45 +927,33 @@
                 card.addEventListener('mouseleave', function() {
                     this.style.boxShadow = '';
                     this.style.transform = '';
-                    this.querySelector('.article-title').style.color =
-                        document.documentElement.classList.contains('dark') ? '#f1f5f9' : '#1f2937';
+                    this.querySelector('.article-title').style.color = '#1f2937';
                 });
-
-                // Apply dark mode to card if active
-                if (document.documentElement.classList.contains('dark')) {
-                    card.style.borderColor     = '#334155';
-                    card.style.backgroundColor = '#1e293b';
-                    card.querySelector('.article-title').style.color = '#f1f5f9';
-                    const excerpt = card.querySelector('p');
-                    if (excerpt) excerpt.style.color = '#94a3b8';
-                    const dateEl = card.querySelector('span');
-                    if (dateEl) dateEl.style.color = '#475569';
-                }
                 return card;
             }
 
-            fetch('articles.json?v=' + Date.now())   // cache-bust so it always reads fresh
-                .then(function(res) {
-                    if (!res.ok) throw new Error('articles.json not found (HTTP ' + res.status + ')');
-                    return res.json();
-                })
+            fetch(proxyUrl)
+                .then(function(res) { return res.json(); })
                 .then(function(data) {
-                    // tinylogger may return an array directly, or wrap it: { posts: [...] } etc.
-                    const articles = Array.isArray(data) ? data
-                                   : data.posts   ? data.posts
-                                   : data.items   ? data.items
-                                   : data.data    ? data.data
-                                   : [];
-
-                    if (articles.length === 0) throw new Error('No articles found');
+                    const parser  = new DOMParser();
+                    const xmlDoc  = parser.parseFromString(data.contents, 'text/xml');
+                    const items   = xmlDoc.querySelectorAll('item');
 
                     loading.classList.add('hidden');
-                    const max = Math.min(articles.length, 6);
-                    for (let i = 0; i < max; i++) list.appendChild(renderCard(articles[i]));
+
+                    if (!items || items.length === 0) {
+                        errorEl.classList.remove('hidden');
+                        return;
+                    }
+
+                    const max = Math.min(items.length, 6);
+                    for (let i = 0; i < max; i++) {
+                        list.appendChild(renderCard(items[i]));
+                    }
                     list.classList.remove('hidden');
                 })
                 .catch(function(err) {
-                    console.warn('Articles load failed:', err.message);
+                    console.error('RSS fetch error:', err);
                     loading.classList.add('hidden');
                     errorEl.classList.remove('hidden');
                 });
