@@ -1,0 +1,35 @@
+name: Fetch Articles
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # runs every 6 hours automatically
+  push:
+    branches: [ main ]       # also runs on every deploy
+  workflow_dispatch:         # allows manual trigger from GitHub UI
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Fetch articles from tinylogger
+        run: |
+          curl -s "https://www.tinylogger.com/api/posts/zuzu/export" \
+               -H "Accept: application/json" \
+               -o articles.json
+          echo "Fetched articles.json:"
+          cat articles.json | head -50
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add articles.json
+          if git diff --staged --quiet; then
+            echo "No changes to articles.json — skipping commit."
+          else
+            git commit -m "chore: update articles.json [skip ci]"
+            git push
+          fi
